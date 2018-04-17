@@ -46,7 +46,7 @@ var store = redux.createStore(reducer, redux.compose(
 ));
 store.subscribe(() => {
     var str = store.getState();
-    // document.getElementById('p-detail').innerHTML = JSON.stringify(str);
+    document.getElementById('p-detail').innerHTML = JSON.stringify(str);
 } );
 store.dispatch({type: 'TOGGLE_IS_ADDING'});
 store.dispatch({type: 'ADD_ITEM',item: 'BLACKBERRY'});
