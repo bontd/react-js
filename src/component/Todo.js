@@ -17,11 +17,11 @@ class Todo extends React.Component {
 
     render() {
         return (
-            <li
+            <li className={this.props.completed ? 'disabled' : null}
                 onClick={this.props.onClick}
             >
                 <span>{this.props.text} {this.props.completed ? <i className="fa fa-check"/> : null}</span>
-                <span className="pull-right">
+                <span className="pull-right icon-remover">
                     <RemoveTodo id={this.props.id}/>
                 </span>
             </li>

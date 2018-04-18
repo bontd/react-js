@@ -18,10 +18,7 @@ const AddTodo = ({ dispatch }) => {
               }}
           >
               <div className="input-group">
-                  <input className="form-control" ref={node => input = node} placeholder="What needs to be done?"/>
-                  {/*<div className="input-group-prepend">*/}
-                      {/*<button type="submit" className="input-group-text">Add Todo</button>*/}
-                  {/*</div>*/}
+                  <input className="form-control" ref={node => input = node} placeholder="Keyup"/>
               </div>
           </form>
       </div>
