@@ -10,6 +10,8 @@ import '../node_modules/font-awesome/css/font-awesome.min.css';
 import { BrowserRouter, Route } from 'react-router-dom';
 import rootReducer from './reducers';
 import App from './component/App';
+import nav from './App';
+import About from './component/About';
 
 // var store = require('./examples.js');
 
@@ -18,7 +20,9 @@ ReactDOM.render(
     <Provider store={store}>
     <BrowserRouter>
         <div>
-            <Route path="/" component={App} />
+            <Route path="/" component={nav} />
+            <Route path="/home" component={App} />
+            <Route path="/about" component={About} />
         </div>
     </BrowserRouter>
     </Provider>
