@@ -4,7 +4,7 @@ import AddTodo from '../containers/AddTodo';
 import VisibleTodoList from '../containers/VisibleTodoList';
 
 const App = () => (
-    <div className="container-fluid">
+    <div className="container-fluid margin-top-20">
         <div className="container">
             <AddTodo />
             <VisibleTodoList />
