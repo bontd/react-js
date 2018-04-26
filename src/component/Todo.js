@@ -3,12 +3,6 @@ import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
 import RemoveTodo from '../containers/RemoveTodo';
 
-// const Todo = ({ onClick, completed, text }) => (
-//     <li onClick={onClick} style={{ textDecoration: completed ? 'line-through' : 'none' }}>
-//         <input type="checkbox" />{text}<button type="button" className="pull-right">×</button>
-//     </li>
-// )
-
 class Todo extends React.Component {
     constructor(props) {
         super(props)
@@ -18,9 +12,14 @@ class Todo extends React.Component {
     render() {
         return (
             <li className={this.props.completed ? 'disabled' : null}
-                onClick={this.props.onClick}
             >
-                <span>{this.props.text} {this.props.completed ? <i className="fa fa-check"/> : null}</span>
+                <input type="checkbox" id={this.props.id} onClick={this.props.onClick} checked={this.props.completed ? 'checked' : null}/>
+                <label htmlFor={this.props.id} className="style-checkbox">
+                    <span>
+                        {this.props.completed ? <i className="fa fa-check"/> : null}
+                    </span>
+                </label>
+                <span>{this.props.text}</span>
                 <span className="pull-right icon-remover">
                     <RemoveTodo id={this.props.id}/>
                 </span>
