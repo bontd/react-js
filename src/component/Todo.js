@@ -13,8 +13,13 @@ class Todo extends React.Component {
         return (
             <li className={this.props.completed ? 'disabled' : null}
             >
-                <input type="checkbox" id={this.props.id} onClick={this.props.onClick} checked={this.props.completed ? 'checked' : null}/>
-                <label htmlFor={this.props.id} className="style-checkbox">
+                <input
+                    type="checkbox"
+                    id={`checkbox-${this.props.id}`}
+                    onClick={this.props.onClick}
+                    checked={this.props.completed ? 'checked' : null}
+                />
+                <label htmlFor={`checkbox-${this.props.id}`} className="style-checkbox">
                     <span>
                         {this.props.completed ? <i className="fa fa-check"/> : null}
                     </span>

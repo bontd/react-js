@@ -9,7 +9,9 @@ let RemoveTodo = ({id, dispatch}) => {
                 e.preventDefault()
                 dispatch(deleteTodo(id))
                 console.log(dispatch(deleteTodo()));
-            }}>X</a>
+            }}>
+                <i className="fa fa-times"></i>
+            </a>
         </div>
     )
 }
