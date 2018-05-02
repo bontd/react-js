@@ -35,9 +35,7 @@ class Todo extends React.Component {
 
 Todo.propTypes = {
     onClick: PropTypes.func.isRequired,
-    completed: PropTypes.bool.isRequired,
-    // text: PropTypes.isRequired,
-    // id: PropTypes.isRequired
+    completed: PropTypes.bool.isRequired
 }
 
 export default Todo;
