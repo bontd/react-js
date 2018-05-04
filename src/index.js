@@ -7,7 +7,7 @@ import '../node_modules/bootstrap/dist/css/bootstrap.css';
 import '../node_modules/bootstrap/dist/css/bootstrap-grid.css';
 import '../node_modules/bootstrap/dist/css/bootstrap-reboot.css';
 import '../node_modules/font-awesome/css/font-awesome.min.css';
-import { BrowserRouter, Route, IndexRoute } from 'react-router-dom';
+import { BrowserRouter, Route } from 'react-router-dom';
 import rootReducer from './reducers';
 import App from './component/App';
 import nav from './App';

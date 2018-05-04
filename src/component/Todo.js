@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import {connect} from 'react-redux';
+// import {connect} from 'react-redux';
 import RemoveTodo from '../containers/RemoveTodo';
 
 class Todo extends React.Component {
@@ -24,7 +24,7 @@ class Todo extends React.Component {
                         {this.props.completed ? <i className="fa fa-check"/> : null}
                     </span>
                 </label>
-                <span>{this.props.text}</span>
+                <span>{this.props.name}</span>
                 <span className="pull-right icon-remover">
                     <RemoveTodo id={this.props.id}/>
                 </span>
