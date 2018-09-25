@@ -1,4 +1,24 @@
-const todos = (state = [], action) => {
+var data = [
+    {
+        id: Math.random(),name: 'a 1',completed: false
+    },
+    {
+        id: Math.random(),name: 'a 2',completed: true
+    },
+    {
+        id: Math.random(),name: 'a 3',completed: false
+    },
+    {
+        id: Math.random(),name: 'a 4',completed: true
+    },
+    {
+        id: Math.random(),name: 'a 5',completed: true
+    },
+    {
+        id: Math.random(),name: 'a 6',completed: false
+    }
+]
+const todos = (state = data, action) => {
     
     switch (action.type) {
         case 'ADD_TODO':

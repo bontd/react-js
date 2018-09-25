@@ -1,37 +1,69 @@
 import React from 'react';
 import axios from 'axios';
+import Tableside from './Sidebar';
+import Simpleview from './Simpleview';
+import Content from './Listuser';
+import ListNew from './news/listnew';
+import NewHot from './news/newhot';
+import {Link} from 'react-router-dom';
 
-class User extends React.Component{
+
+class New extends React.Component{
     render(){
         return (
-            <tr>
-                <td className="text-center">{this.props.number}</td>
-                <td>{this.props.name}</td>
-                <td className="text-center">{this.props.email}</td>
-            </tr>
+            <div className="col-md-4">
+                <div className="list-item">
+                    <figure>
+                        <img src={this.props.image} alt="img "/>
+                        <figcaption>
+                            <h4>
+                                <Link className="nav-link" to={{pathname: `/detail/${this.props.id}`}}>{this.props.title}</Link>
+                            </h4>
+                            <p className="description">{this.props.description}</p>
+                        </figcaption>
+                    </figure>
+                </div>
+            </div>
         )
     }
 }
 
-class UserData extends React.Component {
+class NewData extends React.Component {
     render() {
-        var count = 0;
-        const data = this.props.users;
-        const display = data.map(user => {
-            count++;
+        const data = this.props.news;
+        const display = data.map(newr => {
             return(
-                <User
-                    key={user.id}
-                    number={count}
-                    name={user.name}
-                    email={user.email}
+                <New
+                    key={newr.id}
+                    id={newr.id}
+                    title={newr.title}
+                    description={newr.description}
+                    image={newr.image}
                 />
             );
         });
         return (
-            <table className="table">
-                <tbody>{display}</tbody>
-            </table>
+            <div className="container pd-top-100">
+                <div className="row">
+                    <div className="col-md-9">
+                        <div className="box-user row">
+                            {display}
+                        </div>
+                        <hr className="hr"></hr>
+                        <ListNew />
+                        <div className="row">
+                            <div className="col-md-6">
+                                <div className="title"><span>HOT NEWS</span></div>
+                                <NewHot />
+                            </div>
+                        </div>
+                    </div>
+                    <div className="col-md-3">
+                        <Tableside title="Top View"/>
+                        <Simpleview title="News"/>
+                    </div>
+                </div>
+            </div>
         );
     }
 }
@@ -40,23 +72,24 @@ class TableData extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            users: []
+            news: []
         };
     }
 
     componentDidMount(){
-        axios.get('http://localhost/room/')
+        axios.get('http://192.168.2.50/room/')
             .then(response => {
-                this.setState({users: response.data});
+                this.setState({news: response.data});
             })
-                .catch(err => console.log(err));
+            .catch(err => console.log(err));
     }
 
     render(){
         return(
-            <UserData users={this.state.users} />
+            <NewData news={this.state.news} />
         )
     }
 }
+
 
 export default TableData;

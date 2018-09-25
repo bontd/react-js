@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 // import {connect} from 'react-redux';
 import RemoveTodo from '../containers/RemoveTodo';
+import axios from 'axios';
 
 class Todo extends React.Component {
     constructor(props) {

@@ -13,6 +13,8 @@ import App from './component/App';
 import nav from './App';
 import About from './component/About';
 import TableData from './component/Contact';
+import Detail from './component/Detail';
+
 
 // var store = require('./examples.js');
 
@@ -22,10 +24,12 @@ ReactDOM.render(
     <BrowserRouter>
         <div>
             <Route path="/" component={nav} />
-            <Route exact path={"/"} component={App} />
-            <Route path="/home" component={App} />
+            <Route exact path={"/"} component={TableData} />
+            <Route path="/home" component={TableData} />
             <Route path="/about" component={About} />
-            <Route path="/contact" component={TableData} />
+            <Route path="/app" component={App} />
+            <Route path="/detail" component={Detail} />
+            <Route path="/productdetail" component={Detail} />
         </div>
     </BrowserRouter>
     </Provider>

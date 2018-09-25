@@ -14,9 +14,12 @@ class TodoList extends React.Component {
     }
 
     componentDidMount() {
-        axios.get('http://localhost/room/').then(function(response){
-            console.log(response.data);
-        })
+        const { todos } = this.props;
+        axios.get('http://localhost/room/')
+            .then(response => {
+                this.setState({todos: response.data});
+            })
+            .catch(err => console.log(err));
     }
 
     render(){
@@ -30,15 +33,6 @@ class TodoList extends React.Component {
         )
     }
 }
-
-
-// const TodoList = ({ todos, toggleTodo}) => (
-//     <ul className="list-todo">
-//         {todos.map(todo =>
-//             <Todo key={todo.id} {...todo} onClick={() => toggleTodo(todo.id)} />
-//         )}
-//     </ul>
-// )
 
 TodoList.propTypes = {
     todos: PropTypes.arrayOf(
