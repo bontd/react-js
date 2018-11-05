@@ -34,13 +34,16 @@ class App extends React.Component {
                         <div className="collapse navbar-collapse" id="navbarSupportedContent">
                             <ul className="navbar-nav">
                                 <li className="nav-item">
-                                    <Link className="nav-link" to="/home">Home</Link>
+                                    <Link className="nav-link" to="/">Home</Link>
                                 </li>
                                 <li className="nav-item">
                                     <Link className="nav-link" to="/about">About</Link>
                                 </li>
                                 <li className="nav-item">
                                     <Link className="nav-link" to="/app">todo</Link>
+                                </li>
+                                <li className="nav-item">
+                                    <Link className="nav-link" to="/time">Time</Link>
                                 </li>
                             </ul>
                             <div className="nav navbar-nav navbar-right">

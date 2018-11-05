@@ -5,7 +5,9 @@ import Simpleview from './Simpleview';
 import Content from './Listuser';
 import ListNew from './news/listnew';
 import NewHot from './news/newhot';
+import MyCong from './news/cong';
 import {Link} from 'react-router-dom';
+import Timer from './Timer/Timer';
 
 
 class New extends React.Component{
@@ -14,7 +16,7 @@ class New extends React.Component{
             <div className="col-md-4">
                 <div className="list-item">
                     <figure>
-                        <img src={this.props.image} alt="img "/>
+                        <Link className="nav-link" to={{pathname: `/detail/${this.props.id}`}}><img src={this.props.image} alt="img "/></Link>
                         <figcaption>
                             <h4>
                                 <Link className="nav-link" to={{pathname: `/detail/${this.props.id}`}}>{this.props.title}</Link>
@@ -56,11 +58,16 @@ class NewData extends React.Component {
                                 <div className="title"><span>HOT NEWS</span></div>
                                 <NewHot />
                             </div>
+                            <div className="col-md-6 bg-gray">
+                                <div className="title"><span>C<span className="color-red">+</span>NG</span></div>
+                                <MyCong />
+                            </div>
                         </div>
                     </div>
                     <div className="col-md-3">
                         <Tableside title="Top View"/>
                         <Simpleview title="News"/>
+                        <Timer />
                     </div>
                 </div>
             </div>
@@ -77,7 +84,7 @@ class TableData extends React.Component {
     }
 
     componentDidMount(){
-        axios.get('http://192.168.2.50/room/')
+        axios.get('http://192.168.2.79/room/')
             .then(response => {
                 this.setState({news: response.data});
             })

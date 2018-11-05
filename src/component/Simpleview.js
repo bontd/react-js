@@ -1,4 +1,5 @@
 import React from 'react';
+import axios from 'axios';
 import Listitem from './Listitem';
 
 class Simpleview extends React.Component{
@@ -9,11 +10,11 @@ class Simpleview extends React.Component{
         };
     }
     componentDidMount(){
-        this.setState({sides: [
-            {id: 1,title:'abc 1',image: 'http://www.croop.cl/UI/twitter/images/up-doug-talking-dog.jpg'},
-            {id: 2,title:'abc 2',image: 'http://www.croop.cl/UI/twitter/images/russel.jpg'},
-            {id: 3,title:'abc 3',image: 'http://www.croop.cl/UI/twitter/images/carl.jpg'}
-        ]});
+        axios.get('http://192.168.2.50/room/testapi')
+            .then(response => {
+                this.setState({sides: response.data});
+            })
+            .catch(err => console.log(err));
     }
     render(){
         return (

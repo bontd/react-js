@@ -7,7 +7,7 @@ class Stream extends React.Component {
 		return (
 			<div className="new-stream">
 				<div className="thumbnail-new-stream">
-					<img src={this.props.image} alt="img "/>
+					<Link className="nav-link" to={{pathname: `/detail/${this.props.id}`}}><img src={this.props.image} alt="img "/></Link>
 				</div>
 				<div className="text-new-stream">
 					<h4>
@@ -52,7 +52,7 @@ class ListNew extends React.Component {
     }
 
     componentDidMount(){
-        axios.get('http://192.168.2.50/room/limit')
+        axios.get('http://192.168.2.79/room/limit')
             .then(response => {
                 this.setState({news: response.data});
             })

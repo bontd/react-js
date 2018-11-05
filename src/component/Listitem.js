@@ -1,4 +1,5 @@
 import React from 'react';
+import {Link} from 'react-router-dom';
 
 class ListSidebar extends React.Component {
 	render() {
@@ -17,16 +18,13 @@ class ListSidebar extends React.Component {
 };
 
 class ItemListSidebar extends React.Component{
-	detailProduct() {
-		console.log(this.props.id);
-    }   
 	render() {
 		return (
 			<li>
-				<a onClick={this.detailProduct} href="#">
+				<Link className="nav-link" to={{pathname: `/detail/${this.props.id}`}}>
 					<img src={this.props.image} alt="img list item"/>
-					{this.props.title}
-				</a>
+					{this.props.title.substring(0, 34)}...
+				</Link>
 			</li>
 		);
 	}

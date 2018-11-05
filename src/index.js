@@ -14,6 +14,7 @@ import nav from './App';
 import About from './component/About';
 import TableData from './component/Contact';
 import Detail from './component/Detail';
+import TimerApp from './component/TimerApp';
 
 
 // var store = require('./examples.js');
@@ -28,6 +29,7 @@ ReactDOM.render(
             <Route path="/home" component={TableData} />
             <Route path="/about" component={About} />
             <Route path="/app" component={App} />
+            <Route path="/time" component={TimerApp} />
             <Route path="/detail" component={Detail} />
             <Route path="/productdetail" component={Detail} />
         </div>

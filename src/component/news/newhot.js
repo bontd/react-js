@@ -7,7 +7,7 @@ class NewHost extends React.Component {
 		return (
 			<div className="item-new-hot">
 				<div className="thumbnail-new-stream">
-					<img src={this.props.image} alt="img "/>
+					<Link className="nav-link" to={{pathname: `/detail/${this.props.id}`}}><img src={this.props.image} alt="img "/></Link>
 				</div>
 				<div className="text-new-stream">
 					<h4>
@@ -22,7 +22,6 @@ class NewHost extends React.Component {
 class Hotnews extends React.Component {
 	render(){
 		const data = this.props.news
-		console.log(data);
 		const valueaxios = data.map(newhot => {
 			return (
 				<NewHost key={newhot.id} id={newhot.id} title={newhot.title} description={newhot.description} image={newhot.image} />
@@ -44,7 +43,7 @@ class axiosData extends React.Component {
 		}
 	}
 	componentDidMount(){
-        axios.get('http://192.168.2.50/room/hotnew')
+        axios.get('http://192.168.2.79/room/hotnew')
             .then(response => {
                 this.setState({news: response.data});
             })
